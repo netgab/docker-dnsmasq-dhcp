@@ -4,6 +4,9 @@ The dnsmasq daemon runs in debug mode in the foreground. The main purpose of thi
 
 The container must be run on the host network, because for IPv6 there is no NAT. Otherwise a global IPv6 routable address space must be assigned to the docker deamon. If you're using DHCP(v4) only, the container may be run in a docker network and the DHCP server port (udp/67) must be exposed. This way the DHCP(v4) server may be used for other subnets (e.g.  by using a DHCP relay agent).
 
+# Github repository
+https://github.com/netgab/docker-dnsmasq-dhcp
+
 # Example run:
     docker run -it --rm --net=host --cap-add=NET_ADMIN \
     -v "$(pwd)/dnsmasq":/etc/dnsmasq -p 67:67/udp -p 547:547/udp \
